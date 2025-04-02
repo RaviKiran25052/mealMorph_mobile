@@ -41,3 +41,10 @@ _ nativewind-env.d.ts _
 /// <reference types="nativewind/types" />
 
 npx expo start --clear
+
+----------------------------------------------------------------------------
+
+app folder holds the routes:
+index.tsx -> home page
+
+rnfe - shortcut that generates boilerplate
