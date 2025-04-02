@@ -1,0 +1,43 @@
+npx create-expo-app@latest meal_morph_mobile
+npm run reset-project -n
+npx expo start
+
+npm install nativewind tailwindcss@^3.4.17 react-native-reanimated react-native-safe-area-context
+npx tailwindcss init
+
+_ tailwind.config.js _
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // NOTE: Update this to include the paths to all of your component files.
+  content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
+  presets: [require("nativewind/preset")],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+_ global.css _
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+_ babel.config.js _
+module.exports = {
+	presets: ['<existing presets>', 'nativewind/babel'],
+};
+
+npx expo customize metro.config.js
+
+_ metro.config.js _
+const { getDefaultConfig } = require("expo/metro-config");
+const { withNativeWind } = require("nativewind/metro");
+
+const config = getDefaultConfig(__dirname)
+
+module.exports = withNativeWind(config, { input: "./global.css" });
+
+_ nativewind-env.d.ts _
+/// <reference types="nativewind/types" />
+
+npx expo start --clear
