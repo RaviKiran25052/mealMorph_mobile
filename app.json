@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "meal_morph_mobile",
-    "slug": "meal_morph_mobile",
+    "name": "MealMorph",
+    "slug": "MealMorph",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
